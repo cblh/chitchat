@@ -128,11 +128,12 @@ def main():
         samples_file.write("聊天记录{}:\n".format(datetime.now()))
     # 存储聊天记录，每个utterance以token的id的形式进行存储
     history = []
-    print('开始和chatbot聊天，输入CTRL + Z以退出')
+    # print('开始和chatbot聊天，输入CTRL + Z以退出')
 
     while True:
         try:
-            text = input("user:")
+            # text = input("user:")
+            text = input("")
             # text = "你好"
             if args.save_samples_path:
                 samples_file.write("user:{}\n".format(text))
@@ -168,7 +169,8 @@ def main():
                 # print("his_text:{}".format(his_text))
             history.append(response)
             text = tokenizer.convert_ids_to_tokens(response)
-            print("chatbot:" + "".join(text))
+            # print("chatbot:" + "".join(text))
+            print("".join(text))
             if args.save_samples_path:
                 samples_file.write("chatbot:{}\n".format("".join(text)))
         except KeyboardInterrupt:
